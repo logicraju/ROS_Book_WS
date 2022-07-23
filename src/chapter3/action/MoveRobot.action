@@ -1,0 +1,8 @@
+# goal
+string[] goals
+---
+# result
+string result
+---
+# feedback
+string[] goals_reached_till_now
