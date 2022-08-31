@@ -17,12 +17,16 @@ def feedback_callback(feedback):
 
 def main(action_client):
     '''Main'''
-    goals_data = input("Enter list of goals. Eg- 1,2,3,4,5: ")
-    goals_list = goals_data.strip().split(",")
-
-    goal = MoveRobotGoal(goals=goals_list)
-    action_client.send_goal(goal, done_cb=done_callback, feedback_cb=feedback_callback)
-    rospy.loginfo("Calling the action server")
+    while(True):
+        goals_list = input("\nEnter the goal ID/s separated by commas. Eg- 1,2,3 : ")
+        if(len(goals_list)>0):
+            goals_list = goals_list.strip().split(',')
+            goal = MoveRobotGoal(goals=goals_list)
+            action_client.send_goal(goal, done_cb=done_callback, feedback_cb=feedback_callback)
+            rospy.loginfo("Calling the action server")
+            break
+        else:
+            continue
 
 if __name__ == '__main__':
     rospy.init_node('move_robot_action_client')
