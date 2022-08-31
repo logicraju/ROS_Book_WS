@@ -17,10 +17,8 @@ def feedback_callback(feedback):
 
 def main(action_client):
     '''Main'''
-    goals_list = ['1','2','3','4','5']
-    
-    #goals_list = input("Enter list of goals. Eg- [1,2,3,4,5]: ")
-    #rospy.loginfo(type(goals_list))
+    goals_data = input("Enter list of goals. Eg- 1,2,3,4,5: ")
+    goals_list = goals_data.strip().split(",")
 
     goal = MoveRobotGoal(goals=goals_list)
     action_client.send_goal(goal, done_cb=done_callback, feedback_cb=feedback_callback)
