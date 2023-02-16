@@ -22,9 +22,11 @@
 
   <!-- AMCL -->
   <include file="$(find turtlebot3_manipulation_navigation)/launch/amcl.launch">
-    <arg name="initial_pose_x"  value="0.0" />
-    <arg name="initial_pose_y"  value="0.0" />
-    <arg name="initial_pose_a"  value="1.5708" />
+    <arg name="initial_pose_x"  value="-0.862" />
+    <arg name="initial_pose_y"  value="-0.789" />
+    <arg name="initial_pose_a"  value="3.141" />
+      
+    <!--arg name="initial_pose_a"  value="1.5708" /-->
   </include>
 
   <!-- move_base -->
